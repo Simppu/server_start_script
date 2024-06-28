@@ -37,6 +37,7 @@ def restart_timeout(server_process, startup_file, kill_signal, restart_signal):
             break
         restart_signal.set()
         #server_process.stdin = read
+        os.write(write, "say Server is restarting!\n".encode())
         os.write(write, "stop\n".encode())
         #server_process.stdin.write("stop\n")
         server_process.wait()
