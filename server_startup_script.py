@@ -14,14 +14,14 @@ wait_time = 12*60*60
 def get_sh_or_bat():
    
     if platform.system() == 'Windows':
-        return Path('./run.bat')
+        return Path('run.bat')
     else:
         return Path('./run.sh')
 
 def start_server_process(startup_file):
 
     if platform.system() == 'Windows':
-        return Popen('./run.bat', text=True, shell=True, stdin=read)
+        return Popen('run.bat', text=True, shell=True, stdin=read)
     else:
         return Popen('sh ' + './run.sh',stdin=read, shell=True, text=True)
 
